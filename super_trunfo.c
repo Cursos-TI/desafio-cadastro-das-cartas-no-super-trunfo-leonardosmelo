@@ -17,6 +17,8 @@ int main() {
     float area1 = 345.678;
     float pib1 = 12567.99;
     int pontosturisticos1 = 20;
+    float densidade1 = 0;
+    float pib_per_capta1 = 0;
 
     // segunda carta
 
@@ -27,6 +29,8 @@ int main() {
     float area2 = 234.345;
     float pib2 = 234.567;
     int pontosturisticos2 = 100;
+    float densidade2 = 0;
+    float pib_per_capta2 = 0;
 
     printf("\n");
     printf("\n");
@@ -87,9 +91,16 @@ int main() {
     printf("Cogigo: %s\n", codigo1);
     printf("Nome da Cidade: %s", cidade1);
     printf("Populacao: %d\n", populacao1);
-    printf("Area: %f km2\n", area1);
-    printf("PIB: %f bilhoes de reais\n", pib1);
+    printf("Area: %2.f km2\n", area1);
+    printf("PIB: %2.f bilhoes de reais\n", pib1);
     printf("Pontos Turisticos: %d\n", pontosturisticos1);
+ 
+    densidade1 = (populacao1 / area1);
+    pib_per_capta1 = (pib1 / populacao1);
+
+    printf("A densidade populacional eh: %.2f\n", densidade1);
+    printf("O PIB per Capta eh R$: %2.f\n", pib_per_capta1);
+
     printf("========================================================================================= \n");
  
     // aqui iniciamos a coleta de informações da segunda carta
@@ -143,10 +154,31 @@ int main() {
     printf("Cogigo: %s\n", codigo2);
     printf("Nome da Cidade: %s", cidade2);
     printf("Populacao: %d\n", populacao2);
-    printf("Area: %f km2\n", area2);
-    printf("PIB: %f bilhoes de reais\n", pib2);
+    printf("Area: %2.f km2\n", area2);
+    printf("PIB: %2.f bilhoes de reais\n", pib2);
     printf("Pontos Turisticos: %d\n", pontosturisticos2);
+
+    densidade2 = (populacao2 / area2);
+    pib_per_capta2 = (pib2 / populacao2);
+
+    printf("A densidade populacional eh: %2.f\n", densidade2);
+
+    printf("O PIB per Capta eh R$: %2.f\n", pib_per_capta2);
+
     printf("========================================================================================= \n");
 
-    return 0;
+
+    printf("========================================================================================= \n");
+    printf("Comparação de cartas (Atributo: PIB)\n");
+    printf("========================================================================================= \n");
+
+    printf("Carta 1: - %s tem o PIB: R$ %2.f \n", cidade1, pib1);
+    printf("Carta 2: - %s tem o PIB: R$ %2.f \n", cidade2, pib2);
+
+    if (pib1 > pib2) {
+      printf("A Carta 1: - (%s) venceu!!!\n", cidade1);
+    } else {
+      printf("A Carta 2: - (%s) venceu!!!\n", cidade2);
+      };
+  return 0;
 }
